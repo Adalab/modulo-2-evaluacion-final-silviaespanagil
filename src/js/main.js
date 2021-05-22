@@ -34,6 +34,7 @@ function searchShow() {
           resultLi.appendChild(seriesNameEl);
 
           resultLi.classList.add("js-results");
+          seriesNameEl.classList.add("js-series-name");
         }
 
         createList();
