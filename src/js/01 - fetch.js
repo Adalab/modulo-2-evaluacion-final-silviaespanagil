@@ -55,5 +55,6 @@ function createSubtitle() {
 function searchHandler() {
   searchShow();
   createSubtitle();
+  makeLiClickable();
 }
 searchButton.addEventListener("click", searchHandler);
