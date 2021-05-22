@@ -10,18 +10,22 @@ console.log(":D");
 -- show search url /search/shows?q=:query
 -- important data: name and image.medium
 */
+const searchButton = document.querySelector(".js-buttonSearch");
 
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
 
-  fetch("http://api.tvmaze.com/search/shows?q=:" + searchName)
+  fetch("http://api.tvmaze.com/search/shows?q=" + searchName)
     .then((response) => response.json())
     .then((data) => {
-      const apiAnswer = data.results;
-      for (let i = 0; i < arrayResults.length; i++) {
-        const seriesName = apiAnswer[i].name;
-        const seriesImg = apiAnswer[i].image.medium;
+      const seriesData = data;
+      console.log(seriesData);
+      console.log(data[0]);
+      for (let i = 0; i < seriesData.length; i++) {
+        const seriesName = data[i].show.name;
+        console.log(seriesName); //working
       }
     });
 }
+searchButton.addEventListener("click", searchShow);
