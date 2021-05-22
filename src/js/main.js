@@ -11,7 +11,8 @@ console.log(":D");
 -- important data: name and image.medium
 */
 const searchButton = document.querySelector(".js-buttonSearch");
-
+const imageDefault =
+  "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
@@ -24,9 +25,12 @@ function searchShow() {
       console.log(data[0]);
       for (let i = 0; i < seriesData.length; i++) {
         const seriesName = data[i].show.name;
-        const seriesImg = data[i].show.image.medium;
         console.log(seriesName); //working
-        console.log(seriesImg); //pseudo works...if not image console error of "cannot read property of null"
+        let seriesImg =
+          data[i].show.image === null
+            ? imageDefault
+            : data[i].show.image.medium;
+        console.log(seriesImg); //working
       }
     });
 }
