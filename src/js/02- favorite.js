@@ -11,3 +11,6 @@ function makeLiClickable() {
     seriesInfo.addEventListener("click", handlerFavorites);
   }
 }
+
+function changeClass() {}
+function handlerFavorites() {}

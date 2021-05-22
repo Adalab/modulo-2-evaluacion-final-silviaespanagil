@@ -35,7 +35,9 @@
 .js-series-name {
   color: $pink;
 }
-.js-series-name2 {
-  color: $lighterpink;
+.js-favorite {
   background-color: $pink;
+  .js-series-name {
+    color: $lighterpink;
+  }
 }
