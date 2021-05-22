@@ -31,14 +31,6 @@ function searchShow() {
             ? imageDefault
             : data[i].show.image.medium;
 
-        function createSubtitle() {
-          const searchSubtitle = document.querySelector(".js-resultArea");
-          const searchSubtitleContent = document.createTextNode(
-            "Estas son las series que coinciden con tu búsqueda"
-          );
-          searchSubtitle.appendChild(searchSubtitleContent);
-        }
-
         function createList() {
           const imgEl = document.createElement("img");
           imgEl.src = seriesImg;
@@ -58,4 +50,16 @@ function searchShow() {
     });
 }
 
-searchButton.addEventListener("click", searchShow);
+function createSubtitle() {
+  const searchSubtitle = document.querySelector(".js-resultArea");
+  const searchSubtitleContent = document.createTextNode(
+    "Estas son las series que coinciden con tu búsqueda"
+  );
+  searchSubtitle.appendChild(searchSubtitleContent);
+}
+
+function searchHandler() {
+  searchShow();
+  createSubtitle();
+}
+searchButton.addEventListener("click", searchHandler);
