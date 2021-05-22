@@ -22,7 +22,14 @@ function searchShow() {
     .then((response) => response.json())
     .then((data) => {
       seriesData = data;
-      console.log(seriesData);
+      for (let i = 0; i < seriesData.length; i++) {
+        const seriesName = data[i].show.name;
+        let seriesImg =
+          data[i].show.image === null
+            ? imageDefault
+            : data[i].show.image.medium;
+      }
     });
 }
+
 searchButton.addEventListener("click", searchShow);
