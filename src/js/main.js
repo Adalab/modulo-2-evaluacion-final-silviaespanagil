@@ -32,6 +32,8 @@ function searchShow() {
           ul.appendChild(resultLi);
           resultLi.appendChild(imgEl);
           resultLi.appendChild(seriesNameEl);
+
+          resultLi.classList.add("js-results");
         }
 
         createList();
