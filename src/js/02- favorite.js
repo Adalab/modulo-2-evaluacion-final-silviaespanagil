@@ -5,14 +5,14 @@
 */
 
 //hacer cada li clickable
-
 function makeLiClickable() {
   const allSeriesInfo = document.querySelectorAll(".js-results");
   for (const seriesInfo of allSeriesInfo) {
     seriesInfo.addEventListener("click", handlerFavorites);
   }
 }
+
 function handlerFavorites(ev) {
   const favoriteSeriesClicked = ev.currentTarget;
-  favoriteSeriesClicked.classList.toggle("favorite");
+  favoriteSeriesClicked.classList.toggle("js-favorite");
 }

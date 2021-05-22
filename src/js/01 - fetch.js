@@ -37,11 +37,10 @@ function searchShow() {
           resultLi.classList.add("js-results-color");
           seriesNameEl.classList.add("js-series-name");
         }
-
+        makeLiClickable();
         createList();
       }
     });
-  makeLiClickable();
 }
 
 function createSubtitle() {
