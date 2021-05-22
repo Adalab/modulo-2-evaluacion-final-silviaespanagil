@@ -23,6 +23,7 @@ function searchShow() {
           const imgEl = document.createElement("img");
           const seriesNameEl = document.createElement("h3");
           const seriesNameContent = document.createTextNode(seriesName);
+          const seriesFav = document.createElement("small");
           const ul = document.querySelector(".js-searchResult");
           const resultLi = document.createElement("li");
 
@@ -32,8 +33,10 @@ function searchShow() {
           ul.appendChild(resultLi);
           resultLi.appendChild(imgEl);
           resultLi.appendChild(seriesNameEl);
+          resultLi.appendChild(seriesFav);
 
           resultLi.classList.add("js-results");
+          resultLi.classList.add("js-results-color");
           seriesNameEl.classList.add("js-series-name");
         }
 

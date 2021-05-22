@@ -26,10 +26,16 @@
 }
 .js-results {
   display: block;
-  background-color: $lighterpink;
   margin-bottom: 20px;
   padding: 20px;
 }
+.js-results-color {
+  background-color: $lighterpink;
+}
 .js-series-name {
   color: $pink;
+}
+.js-series-name2 {
+  color: $lighterpink;
+  background-color: $pink;
 }
