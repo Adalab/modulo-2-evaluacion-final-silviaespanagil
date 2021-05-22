@@ -24,6 +24,27 @@
     }
   }
 }
+.userArea {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.resultArea {
+  width: 50%;
+  &__subtitle {
+    height: 50px;
+    text-align: center;
+  }
+}
+.favoriteArea {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  &__subtitle {
+    height: 50px;
+    text-align: center;
+  }
+}
 .js-results {
   display: block;
   margin-bottom: 20px;

@@ -1,7 +1,3 @@
-"use strict";
-
-const searchButton = document.querySelector(".js-buttonSearch");
-
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
