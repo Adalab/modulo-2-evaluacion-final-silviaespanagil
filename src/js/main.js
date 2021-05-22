@@ -11,28 +11,18 @@ console.log(":D");
 -- important data: name and image.medium
 */
 const searchButton = document.querySelector(".js-buttonSearch");
+let seriesData = [];
 
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
   const imageDefault =
     "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
-
   fetch("http://api.tvmaze.com/search/shows?q=" + searchName)
     .then((response) => response.json())
     .then((data) => {
-      const seriesData = data;
+      seriesData = data;
       console.log(seriesData);
-      console.log(data[0]);
-      for (let i = 0; i < seriesData.length; i++) {
-        const seriesName = data[i].show.name;
-        console.log(seriesName); //working
-        let seriesImg =
-          data[i].show.image === null
-            ? imageDefault
-            : data[i].show.image.medium;
-        console.log(seriesImg); //working
-      }
     });
 }
 searchButton.addEventListener("click", searchShow);

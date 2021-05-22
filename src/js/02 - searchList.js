@@ -11,20 +11,23 @@ function createSubtitle() {
 
 //creo image
 function createImage() {
-  const img = document.createElement("img");
-  img.src = "https://memegenerator.net/img/instances/69209806.jpg";
-  img.alt = "Poster de serie"; //esto cambia por variable img
+  const imgEl = document.createElement("img");
+  imgEl.src = seriesImg;
+  imgEl.alt = "Poster de serie"; //esto cambia por variable img
 }
 
 //creo nombreserie
-function createName() {}
+function createName() {
+  const seriesNameEl = document.createElement("h3");
+  const seriesNameContent = document.createTextNode(seriesName);
+  seriesNameEl.appendChild(seriesNameContent);
+}
 //creo lista con image y nombre serie
 
 function createList() {
   const ul = document.querySelector(".js-searchResult");
   const resultLi = document.createElement("li");
-
-  console.log(resultLi);
+  ul.appendChild(resultLi);
+  resultLi.appendChild(createImage());
+  resultLi.appendChild(createName());
 }
-
-//hago handler con todo lo que se pinta el handler seria la li que llama a la  img y al titulo?
