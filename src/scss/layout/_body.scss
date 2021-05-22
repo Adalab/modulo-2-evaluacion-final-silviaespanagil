@@ -1,6 +1,32 @@
+.searchForm {
+  &__input {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid $pink;
+    box-shadow: 5px 5px 5px $lighterpink;
+  }
+  &__button {
+    color: $lighterpink;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    background-color: $noBlack;
+    box-shadow: 2px 2px 2px $lighterpink;
+    border-radius: 15px;
+    text-transform: uppercase;
+    border: none;
+    margin: 20px 0 20px 0;
+    &:hover {
+      background-color: $lighterpink;
+      box-shadow: 2px 2px 2px $noBlack;
+      color: $noBlack;
+      transform: translateY(-2px);
+    }
+  }
+}
 .js-results {
   display: block;
-  background-color: $ligtherpink;
+  background-color: $lighterpink;
   margin-bottom: 20px;
   padding: 20px;
 }
