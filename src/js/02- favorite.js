@@ -5,8 +5,9 @@
 */
 
 //hacer cada li clickable
-
-/*const serie = document.querySelectorAll(".js-results");
-serie.forEach((li) => {
-  li.addEventListener("click", makefavorite);
-});*/
+function makeLiClickable() {
+  const allSeriesInfo = document.querySelectorAll(".js-results");
+  for (const seriesInfo of allSeriesInfo) {
+    seriesInfo.addEventListener("click", handlerFavorites);
+  }
+}
