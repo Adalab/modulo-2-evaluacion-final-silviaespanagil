@@ -1,5 +1,7 @@
 let showdata = [];
 
+//hago un fetch en funcion del input
+
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
@@ -11,19 +13,18 @@ function searchShow() {
     .then((response) => response.json())
     .then((data) => {
       for (const dataEl of data) {
-        showdata.push(dataEl);
+        showdata.push(dataEl.show);
       }
+      /*showdata = data.show;*/
       getLocalStorage();
 
-      for (let i = 0; i < data.length; i++) {
-        const seriesName = data[i].show.name;
-        const seriesId = data[i].show.id;
+      for (let i = 0; i < showdata.length; i++) {
+        const seriesName = showdata[i].name;
+        const seriesId = showdata[i].id;
         console.log(seriesId);
         let seriesImg =
-          data[i].show.image === null
-            ? imageDefault
-            : data[i].show.image.medium;
-
+          showdata[i].image === null ? imageDefault : showdata[i].image.medium;
+        //creo la lista con los resultados
         function createList() {
           const imgEl = document.createElement("img");
           const seriesNameEl = document.createElement("h3");
@@ -31,6 +32,7 @@ function searchShow() {
           const ul = document.querySelector(".js-searchResult");
           const resultLi = document.createElement("li");
 
+          resultLi.id = seriesId;
           imgEl.src = seriesImg;
           imgEl.alt = "Poster de serie";
           seriesNameEl.appendChild(seriesNameContent);
@@ -47,7 +49,7 @@ function searchShow() {
       }
     });
 }
-
+//creo un subtitulo solo para cuando se busca
 function createSubtitle() {
   const searchSubtitle = document.querySelector(".js-resultArea");
   const searchSubtitleContent = document.createTextNode(
@@ -56,17 +58,18 @@ function createSubtitle() {
   searchSubtitle.appendChild(searchSubtitleContent);
 }
 
+//evitar que el enter haga algo
 function submit(event) {
   event.preventDefault();
 }
 
+//handler del boton del form
 function searchHandler() {
   searchShow();
   createSubtitle();
   makeLiClickable();
 }
 
+//eventos
 form.addEventListener("submit", submit);
-
 searchButton.addEventListener("click", searchHandler);
-console.log(showdata);
