@@ -1,3 +1,6 @@
+.searchTittle {
+  padding: 10px;
+}
 .searchForm {
   &__input {
     padding: 10px;
@@ -15,7 +18,7 @@
     border-radius: 15px;
     text-transform: uppercase;
     border: none;
-    margin: 20px 0 20px 0;
+    margin: 20px 0 20px 10px;
     &:hover {
       background-color: $lighterpink;
       box-shadow: 2px 2px 2px $noBlack;

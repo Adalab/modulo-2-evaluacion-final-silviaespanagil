@@ -56,10 +56,17 @@ function createSubtitle() {
   searchSubtitle.appendChild(searchSubtitleContent);
 }
 
+function submit(event) {
+  event.preventDefault();
+}
+
 function searchHandler() {
   searchShow();
   createSubtitle();
   makeLiClickable();
 }
+
+form.addEventListener("submit", submit);
+
 searchButton.addEventListener("click", searchHandler);
 console.log(showdata);
