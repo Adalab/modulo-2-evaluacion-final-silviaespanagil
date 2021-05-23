@@ -8,8 +8,12 @@ function searchShow() {
   fetch(searchURL)
     .then((response) => response.json())
     .then((data) => {
+      //sumo localStorage de  todo pero como me quedo solo con el fav
+      localStorage.setItem("localtvseries", JSON.stringify(data));
       for (let i = 0; i < data.length; i++) {
         const seriesName = data[i].show.name;
+        const seriesId = data[i].show.id;
+        console.log(seriesId);
         let seriesImg =
           data[i].show.image === null
             ? imageDefault

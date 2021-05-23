@@ -5,7 +5,6 @@
 */
 
 //hacer cada li clickable
-
 function makeLiClickable() {
   const allSeriesInfo = document.querySelectorAll(".js-results");
   for (const seriesInfo of allSeriesInfo) {
@@ -14,7 +13,7 @@ function makeLiClickable() {
 }
 
 function classFavorite(ev) {
-  //tomo el favorito por clickç
+  //tomo el favorito por click
   const favoriteSeriesClicked = ev.currentTarget;
   favoriteSeriesClicked.classList.toggle("js-favorite");
   // de aqui para abajo podría hacerlo con localStorage??
