@@ -5,7 +5,7 @@
 */
 //hacer cada li clickable
 
-let favShow = [];
+/*let favShow = [];
 
 function makeLiClickable() {
   const allSeriesInfo = document.querySelectorAll(".js-results");
@@ -42,3 +42,4 @@ function classFavorite(ev) {
   }
 }
 const favorites = showdata.filter((favorite) => jj);
+*/

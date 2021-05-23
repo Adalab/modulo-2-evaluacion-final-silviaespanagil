@@ -1,7 +1,11 @@
-let showdata = [];
+/*let showdata = [];
+/*
+const searchButton = document.querySelector(".js-buttonSearch");
+const form = document.querySelector(".js-form");
+*/
 
 //hago un fetch en funcion del input
-
+/*
 function searchShow() {
   const userSearch = document.querySelector(".js-searchBox");
   const searchName = userSearch.value;
@@ -15,8 +19,8 @@ function searchShow() {
       for (const dataEl of data) {
         showdata.push(dataEl.show);
       }
-      /*showdata = data.show;*/
-      getLocalStorage();
+      /*showdata = data.show;
+      setLocalStorage();
 
       for (let i = 0; i < showdata.length; i++) {
         const seriesName = showdata[i].name;
@@ -73,3 +77,4 @@ function searchHandler() {
 //eventos
 form.addEventListener("submit", submit);
 searchButton.addEventListener("click", searchHandler);
+*/
