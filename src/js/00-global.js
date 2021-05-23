@@ -34,12 +34,31 @@ function createList() {
       allSeries[i].image === null
         ? defaultImage
         : defaultImage; /*allSeries[i].image.medium;*/
+
     const resultLi = document.createElement("li");
-    resultLi.innerHTML += `<img src=${seriesImg}/>`;
-    resultLi.innerHTML += `<h3>${allSeries[i].name}</h3>`;
+    const imgEl = document.createElement("img");
+    const seriesNameEl = document.createElement("h3");
+    const seriesNameContent = document.createTextNode(`${allSeries[i].name}`);
+    imgEl.src = seriesImg;
+    imgEl.alt = "`${allSeries[i].name}`";
+    seriesNameEl.appendChild(seriesNameContent);
     ulResults.appendChild(resultLi);
+    resultLi.appendChild(imgEl);
+    resultLi.appendChild(seriesNameEl);
+    resultLi.classList.add("js-results");
+    resultLi.classList.add("js-results-color");
+    seriesNameEl.classList.add("js-series-name");
   }
 }
+
+//Make li clickable for favs
+
+const allSeriesCards = document.querySelectorAll(".js-results");
+for (const seriesCard of allSeriesCards) {
+  seriesCard.addEventListener("click", classFavorite);
+}
+
+//Favorite
 
 //Remove form default
 function preventSubmit(event) {
