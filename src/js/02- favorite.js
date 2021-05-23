@@ -14,24 +14,17 @@ function makeLiClickable() {
 }
 
 function classFavorite(ev) {
+  //tomo el favorito por clickç
   const favoriteSeriesClicked = ev.currentTarget;
   favoriteSeriesClicked.classList.toggle("js-favorite");
-  // de aqui para abajo podría hacerlo con localStorage
+  // de aqui para abajo podría hacerlo con localStorage??
+  //pinto el favorito en nueva columna
   if (favoriteSeriesClicked.classList.contains("js-favorite")) {
     const favSection = document.querySelector(".js-favArea");
-    const newUl = document.createElement("ul");
+    const newUl = document.querySelector(".js-searchFavs");
     const favLi = favoriteSeriesClicked;
-    favSection.appendChild(newUl);
     newUl.appendChild(favLi);
+    favSection.classList.remove("js-hidden");
     newUl.classList.add("js-favoriteArea");
   }
 }
-
-//se repite por cada fav que sumo.
-function classFavoriteSubtitle() {
-  const favTitle = document.querySelector(".js-favTitle");
-  const favTitleContent = document.createTextNode("Tus favoritos");
-  favTitle.appendChild(favTitleContent);
-}
-/*¿cómo podría hacer  para que el elemento no se me repita infinitamente? si lo creo desde DOM.
-Podría crear el section y el ul con clase hidden y retirarle la clase y solo sumar los li*/
