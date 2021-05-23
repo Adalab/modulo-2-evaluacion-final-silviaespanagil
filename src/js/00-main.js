@@ -3,6 +3,7 @@
 //Constantes
 
 const searchButton = document.querySelector(".js-buttonSearch");
+const form = document.querySelector(".js-form");
 let allSeries = []; //consolelog da ok
 
 //API fetch
@@ -39,5 +40,12 @@ function createList() {
     ulResults.appendChild(resultLi);
   }
 }
+
+//Remove form default
+function preventSubmit(event) {
+  event.preventDefault();
+}
+
 searchButton.addEventListener("click", search);
+form.addEventListener("submit", preventSubmit);
 console.log(allSeries);
