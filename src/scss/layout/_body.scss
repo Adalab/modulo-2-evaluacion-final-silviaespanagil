@@ -1,5 +1,5 @@
 .searchTittle {
-  padding: 20px;
+  padding: 40px;
   margin-top: 10px;
   text-transform: uppercase;
 }
@@ -44,14 +44,17 @@
 .resultArea {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
   &__subtitle {
     height: 50px;
     text-align: center;
   }
 }
 .favoriteArea {
-  width: 300px;
   display: flex;
+  width: 350px;
   margin-top: 10px;
   align-items: center;
   flex-direction: column;
@@ -72,6 +75,8 @@
 }
 .js-results-color {
   background-color: $lighterpink;
+  border-radius: 10px;
+  width: 300px;
 }
 .js-series-name {
   color: $pink;
@@ -79,6 +84,7 @@
 .js-favorite {
   width: 150px;
   background-color: $pink;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -99,9 +105,6 @@
   display: none;
 }
 
-.js-searchResult {
-  width: 500px;
-}
 .resetButton {
   width: 40px;
   height: 20px;

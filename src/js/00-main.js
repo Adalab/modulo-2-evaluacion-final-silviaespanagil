@@ -15,13 +15,15 @@ let favoriteSeries = [];
 
 //delete favs
 
-function deleteFav(index) {
-  favoriteSeries.splice(index, 1);
+function deleteFav(i) {
+  favoriteSeries.splice(i, 1);
   paintFav();
 }
-function deleteIcon() {
+function deleteIcon(i) {
   const deleteIcons = document.querySelectorAll("small");
   for (const deleteIcon of deleteIcons) {
     favCard.addEventListener("click", deleteFav);
   }
 }
+
+console.log(favoriteSeries);

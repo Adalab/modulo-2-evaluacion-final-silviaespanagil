@@ -24,7 +24,6 @@ function favoriteShow(ev) {
     const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
     favoriteSeries.push(foundSerie);
   }
-
   paintFav();
   setLocalStorage();
 }
