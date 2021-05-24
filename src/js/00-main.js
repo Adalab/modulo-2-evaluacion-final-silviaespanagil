@@ -4,6 +4,7 @@
 
 const searchButton = document.querySelector(".js-buttonSearch");
 const form = document.querySelector(".js-form");
+const ulResults = document.querySelector(".js-searchResult");
 let allSeries = []; //consolelog da ok
 
 //API fetch
@@ -16,12 +17,14 @@ function search() {
     .then((response) => response.json())
     .then((data) => {
       const seriesList = data;
+      allSeries = [];
       for (const series of seriesList) {
         allSeries.push(series.show);
       }
+      resultReset();
+      createList();
+      makeLiClickable();
     });
-  createList();
-  makeLiClickable();
 }
 
 //Paint HTML
@@ -29,13 +32,12 @@ function search() {
 function createList() {
   const defaultImage =
     "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
-  const ulResults = document.querySelector(".js-searchResult");
+
   for (let i = 0; i < allSeries.length; i++) {
     let seriesImg =
       allSeries[i].image === null
         ? defaultImage
-        : defaultImage; /*allSeries[i].image.medium;*/
-
+        : allSeries[i].image.medium; /*allSeries[i].image.medium;*/
     const seriesId = allSeries[i].id;
     const resultLi = document.createElement("li");
     const imgEl = document.createElement("img");
@@ -54,6 +56,15 @@ function createList() {
   }
 }
 
+//Creo subtítulo búsqueda
+function createSubtitle() {
+  const searchSubtitle = document.querySelector(".js-resultArea");
+  const searchSubtitleContent = document.createTextNode(
+    "Estas son las series que coinciden con tu búsqueda"
+  );
+  searchSubtitle.appendChild(searchSubtitleContent);
+}
+
 //Make li clickable for favs
 function makeLiClickable() {
   const allSeriesCards = document.querySelectorAll(".js-results");
@@ -62,12 +73,13 @@ function makeLiClickable() {
   }
 }
 //Favorite
+let favoriteSeries = [];
 
 function favoriteShow(ev) {
   //tomo el favorito por click
   const allShows = ev.currentTarget;
   allShows.classList.add("js-favorite");
-
+  console.log(allShows.id);
   //pinto el favorito en nueva columna
   if (allShows.classList.contains("js-favorite")) {
     const favSection = document.querySelector(".js-favArea");
@@ -85,18 +97,26 @@ function favoriteShow(ev) {
     newUl.classList.add("js-favoriteArea");
 
     //guardo la información del fav para pushear nuevo array
-    const idSelected = allSeries.id;
+    /*const idSelected = allSeries.id;
     const favSeriesInfo = allSeries.find(
       (serie) => allSeries.id === allShows.id
     );
-    console.log(favSeriesInfo);
+    console.log(favSeriesInfo);*/
   }
+}
+
+//Reset ul with new search
+
+function resultReset() {
+  ulResults.innerHTML = "";
 }
 
 //Remove form default
 function preventSubmit(event) {
   event.preventDefault();
 }
+
+//handler de searchButton
 
 searchButton.addEventListener("click", search);
 form.addEventListener("submit", preventSubmit);
