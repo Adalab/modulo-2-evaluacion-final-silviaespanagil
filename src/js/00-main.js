@@ -85,13 +85,8 @@ function favoriteShow(ev) {
       (idFavorite) => idFavorite.id !== seriesId
     );
   }
-  //const isFavorite = favoriteSeries.find;
-  //(idFavorite) => idFavorite === seriesId;
   paintFav();
-
-  // repintar series normales
-  // repintar favoritos
-  // guardar en el local storage
+  setLocalStorage();
 }
 
 // Paint HTML Favorites
@@ -121,7 +116,7 @@ function paintFav() {
     small.appendChild(smallContent);
     favSeriesName.appendChild(favSeriesNameContent);
     favUl.appendChild(favLi);
-    favLi.id = favoriteSeries.id;
+    favLi.id = favoriteSeries[i].id;
     favLi.appendChild(favImg);
     favLi.appendChild(favDiv);
     favDiv.classList.add("js-favDiv");
@@ -129,6 +124,21 @@ function paintFav() {
     favSection.classList.remove("js-hidden");
     favUl.classList.add("js-favoriteArea");
   }
+}
+
+//Add localStorage
+function setLocalStorage() {
+  localStorage.setItem("favoritesSeries", JSON.stringify(favoriteSeries));
+}
+
+//Get localStorage
+function getLocal() {
+  let getLocalFavorites = JSON.parse(localStorage.getItem("favoritesSeries"));
+
+  if (getLocalFavorites !== null) {
+    favoriteSeries = getLocalFavorites;
+  }
+  paintFav();
 }
 
 //Reset ul with new search
@@ -149,4 +159,4 @@ function preventSubmit(event) {
 
 searchButton.addEventListener("click", search);
 form.addEventListener("submit", preventSubmit);
-console.log(favoriteSeries);
+getLocal();
