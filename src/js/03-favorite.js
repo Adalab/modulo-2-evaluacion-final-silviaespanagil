@@ -23,10 +23,6 @@ function favoriteShow(ev) {
   if (favExist === undefined) {
     const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
     favoriteSeries.push(foundSerie);
-  } else {
-    favoriteSeries = favoriteSeries.filter(
-      (idFavorite) => idFavorite.id !== seriesId
-    );
   }
 
   paintFav();

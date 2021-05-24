@@ -1,12 +1,20 @@
 .searchTittle {
-  padding: 10px;
+  padding: 20px;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 .searchForm {
+  display: flex;
+
+  padding: 20px;
   &__input {
+    width: 80%;
     padding: 10px;
-    margin: 10px;
-    border: 2px solid $pink;
-    box-shadow: 5px 5px 5px $lighterpink;
+    margin: 20px;
+    border: none;
+    background-color: $lightpink;
+    border-bottom: 2px solid $pink;
+    border-right: 2px dotted $pink;
   }
   &__button {
     color: $lighterpink;
@@ -44,6 +52,7 @@
 .favoriteArea {
   width: 300px;
   display: flex;
+  margin-top: 10px;
   align-items: center;
   flex-direction: column;
   background-color: $lighterpink;
@@ -51,6 +60,7 @@
   &__subtitle {
     height: 50px;
     text-align: center;
+    padding-top: 20px;
   }
 }
 .js-results {
@@ -91,4 +101,22 @@
 
 .js-searchResult {
   width: 500px;
+}
+.resetButton {
+  width: 40px;
+  height: 20px;
+  background-color: $lightpink;
+  color: $pink;
+  border: none;
+  border-bottom: 2px solid $pink;
+  border-right: 2px solid $pink;
+  border-radius: 15px;
+  color: $noBlack;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 20px;
 }
