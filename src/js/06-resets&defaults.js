@@ -14,6 +14,15 @@ function resetFav() {
   favSection.classList.add("js-hidden");
 }
 
+//delete favs
+
+function deleteIcon(i) {
+  const deleteIcons = document.querySelectorAll("small");
+  for (const deleteIcon of deleteIcons) {
+    favCard.addEventListener("click", deleteFav);
+  }
+}
+
 //Remove form default
 function preventSubmit(event) {
   event.preventDefault();

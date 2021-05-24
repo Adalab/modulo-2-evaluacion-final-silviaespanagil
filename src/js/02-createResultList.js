@@ -19,7 +19,6 @@ function createList() {
     resultLi.appendChild(imgEl);
     resultLi.appendChild(seriesNameEl);
 
-    // si es favorita resultLi.classList.add("js-favorite");
     resultLi.classList.add("js-results");
     resultLi.classList.add("js-results-color");
     seriesNameEl.classList.add("js-series-name");
