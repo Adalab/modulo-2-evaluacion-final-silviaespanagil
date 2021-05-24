@@ -36,7 +36,7 @@ To run the proyect you will need node.js.
 
 ## Development ⌨️
 
-For the development of this web application I used a flowchart to understand the user journey and develop my code following some logic. If you are curious about my train of thought you can check my flowchart in Spanish [here] (https://docs.google.com/drawings/d/1ItGOm_rsoCbhgoTTHJCJtVWbsdBvrlXJGXwK8onAhl8/edit).
+For the development of this web application I used a flowchart to understand the user journey and develop my code following some logic. If you are curious about my train of thought you can check my flowchart in Spanish [here](https://docs.google.com/drawings/d/1ItGOm_rsoCbhgoTTHJCJtVWbsdBvrlXJGXwK8onAhl8/edit).
 
 The main function is the fetch that will give us all the content for our dinamic website. With this information saved on a variable I rendered the website mainly using the DOM as a way of practice.
 
