@@ -11,21 +11,6 @@ const defaultImage =
 let allSeries = [];
 let favoriteSeries = [];
 
-//Add localStorage
-function setLocalStorage() {
-  localStorage.setItem("favoritesSeries", JSON.stringify(favoriteSeries));
-}
-
-//Get localStorage
-function getLocal() {
-  let getLocalFavorites = JSON.parse(localStorage.getItem("favoritesSeries"));
-
-  if (getLocalFavorites !== null) {
-    favoriteSeries = getLocalFavorites;
-  }
-  paintFav();
-}
-
 //delete favs
 
 function deleteIcon() {
@@ -33,20 +18,6 @@ function deleteIcon() {
   for (const deleteIcon of deleteIcons) {
     favCard.addEventListener("click", deleteFav);
   }
-}
-
-//Reset ul with new search
-
-function resultReset() {
-  ulResults.innerHTML = "";
-}
-function favReset() {
-  favUl.innerHTML = "";
-}
-
-//Remove form default
-function preventSubmit(event) {
-  event.preventDefault();
 }
 
 //handler de searchButtons
