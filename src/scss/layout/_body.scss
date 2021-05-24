@@ -61,9 +61,17 @@
 }
 .js-favorite {
   background-color: $pink;
-  .js-series-name {
+  display: block;
+  padding: 20px;
+  margin-bottom: 20px;
+  js-series-name {
     color: $lighterpink;
   }
+}
+.js-favDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .js-hidden {

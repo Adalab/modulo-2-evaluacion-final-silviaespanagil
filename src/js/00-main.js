@@ -5,7 +5,12 @@
 const searchButton = document.querySelector(".js-buttonSearch");
 const form = document.querySelector(".js-form");
 const ulResults = document.querySelector(".js-searchResult");
-let allSeries = []; //consolelog da ok
+
+const favUl = document.querySelector(".js-searchFavs");
+const defaultImage =
+  "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+let allSeries = [];
+let favoriteSeries = [];
 
 //API fetch
 function search() {
@@ -21,23 +26,19 @@ function search() {
       for (const series of seriesList) {
         allSeries.push(series.show);
       }
-      resultReset();
       createList();
       makeLiClickable();
     });
 }
 
-//Paint HTML
+//Paint HTML Results
 
 function createList() {
-  const defaultImage =
-    "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+  resultReset();
 
   for (let i = 0; i < allSeries.length; i++) {
     let seriesImg =
-      allSeries[i].image === null
-        ? defaultImage
-        : allSeries[i].image.medium; /*allSeries[i].image.medium;*/
+      allSeries[i].image === null ? defaultImage : allSeries[i].image.medium;
     const seriesId = allSeries[i].id;
     const resultLi = document.createElement("li");
     const imgEl = document.createElement("img");
@@ -50,19 +51,12 @@ function createList() {
     resultLi.id = seriesId;
     resultLi.appendChild(imgEl);
     resultLi.appendChild(seriesNameEl);
+
+    // si es favorita resultLi.classList.add("js-favorite");
     resultLi.classList.add("js-results");
     resultLi.classList.add("js-results-color");
     seriesNameEl.classList.add("js-series-name");
   }
-}
-
-//Creo subtítulo búsqueda
-function createSubtitle() {
-  const searchSubtitle = document.querySelector(".js-resultArea");
-  const searchSubtitleContent = document.createTextNode(
-    "Estas son las series que coinciden con tu búsqueda"
-  );
-  searchSubtitle.appendChild(searchSubtitleContent);
 }
 
 //Make li clickable for favs
@@ -72,41 +66,68 @@ function makeLiClickable() {
     seriesCard.addEventListener("click", favoriteShow);
   }
 }
-//Favorite
-let favoriteSeries = [];
-
+// Identify Favorite Shows
 function favoriteShow(ev) {
   //tomo el favorito por click
-  const allShows = ev.currentTarget;
-  allShows.classList.add("js-favorite");
-
+  const favShows = ev.currentTarget;
+  console.log("current", favShows);
   //fav array
-  const seriesId = allShows.id;
-  const favExist = favoriteSeries.find((idFavorite) => idFavorite === seriesId);
+  const seriesId = parseInt(favShows.id);
+
+  const favExist = favoriteSeries.find(
+    (idFavorite) => idFavorite.id === seriesId
+  );
   if (favExist === undefined) {
-    favoriteSeries.push(seriesId);
+    const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
+    favoriteSeries.push(foundSerie);
   } else {
     favoriteSeries = favoriteSeries.filter(
-      (idFavorite) => idFavorite !== seriesId
+      (idFavorite) => idFavorite.id !== seriesId
     );
   }
-  console.log(favoriteSeries);
+  //const isFavorite = favoriteSeries.find;
+  //(idFavorite) => idFavorite === seriesId;
+  paintFav();
 
-  //paint fav column pero si lo quito no la saca
-  if (allShows.classList.contains("js-favorite")) {
+  // repintar series normales
+  // repintar favoritos
+  // guardar en el local storage
+}
+
+// Paint HTML Favorites
+
+function paintFav() {
+  favReset();
+  for (let i = 0; i < favoriteSeries.length; i++) {
+    let favSeriesImg =
+      favoriteSeries[i].image === null
+        ? defaultImage
+        : favoriteSeries[i].image.medium;
     const favSection = document.querySelector(".js-favArea");
-    const newUl = document.querySelector(".js-searchFavs");
-    //const erase = document.createElement("img");
-    const favLi = allShows;
+    const small = document.createElement("small");
+    const favLi = document.createElement("li");
+    const favImg = document.createElement("img");
+    const favDiv = document.createElement("div");
+    const favSeriesName = document.createElement("h3");
+    const smallContent = document.createTextNode("[x]");
+    const favSeriesNameContent = document.createTextNode(
+      `${favoriteSeries[i].name}`
+    );
+    favImg.src = favSeriesImg;
+    favImg.alt = "`${favoriteSeries[i].name}`";
 
-    //erase.src = "../assets/images/eliminate.png";
-    //erase.width = "30";
-
-    newUl.appendChild(favLi);
-    //favLi.appendChild(erase);
-
+    favDiv.appendChild(favSeriesName);
+    favDiv.appendChild(small);
+    small.appendChild(smallContent);
+    favSeriesName.appendChild(favSeriesNameContent);
+    favUl.appendChild(favLi);
+    favLi.id = favoriteSeries.id;
+    favLi.appendChild(favImg);
+    favLi.appendChild(favDiv);
+    favDiv.classList.add("js-favDiv");
+    favLi.classList.add("js-favorite");
     favSection.classList.remove("js-hidden");
-    newUl.classList.add("js-favoriteArea");
+    favUl.classList.add("js-favoriteArea");
   }
 }
 
@@ -114,6 +135,9 @@ function favoriteShow(ev) {
 
 function resultReset() {
   ulResults.innerHTML = "";
+}
+function favReset() {
+  favUl.innerHTML = "";
 }
 
 //Remove form default
@@ -125,4 +149,4 @@ function preventSubmit(event) {
 
 searchButton.addEventListener("click", search);
 form.addEventListener("submit", preventSubmit);
-console.log(allSeries);
+console.log(favoriteSeries);
