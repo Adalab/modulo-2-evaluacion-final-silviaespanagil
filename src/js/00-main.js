@@ -79,8 +79,20 @@ function favoriteShow(ev) {
   //tomo el favorito por click
   const allShows = ev.currentTarget;
   allShows.classList.add("js-favorite");
-  console.log(allShows.id);
-  //pinto el favorito en nueva columna
+
+  //fav array
+  const seriesId = allShows.id;
+  const favExist = favoriteSeries.find((idFavorite) => idFavorite === seriesId);
+  if (favExist === undefined) {
+    favoriteSeries.push(seriesId);
+  } else {
+    favoriteSeries = favoriteSeries.filter(
+      (idFavorite) => idFavorite !== seriesId
+    );
+  }
+  console.log(favoriteSeries);
+
+  //paint fav column pero si lo quito no la saca
   if (allShows.classList.contains("js-favorite")) {
     const favSection = document.querySelector(".js-favArea");
     const newUl = document.querySelector(".js-searchFavs");
@@ -95,13 +107,6 @@ function favoriteShow(ev) {
 
     favSection.classList.remove("js-hidden");
     newUl.classList.add("js-favoriteArea");
-
-    //guardo la información del fav para pushear nuevo array
-    /*const idSelected = allSeries.id;
-    const favSeriesInfo = allSeries.find(
-      (serie) => allSeries.id === allShows.id
-    );
-    console.log(favSeriesInfo);*/
   }
 }
 
