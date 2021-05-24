@@ -11,37 +11,6 @@ const defaultImage =
 let allSeries = [];
 let favoriteSeries = [];
 
-//Make li clickable for favs
-function makeLiClickable() {
-  const allSeriesCards = document.querySelectorAll(".js-results");
-  for (const seriesCard of allSeriesCards) {
-    seriesCard.addEventListener("click", favoriteShow);
-  }
-}
-// Identify Favorite Shows
-function favoriteShow(ev) {
-  //tomo el favorito por click
-  const favShows = ev.currentTarget;
-  console.log("current", favShows);
-  //fav array
-  const seriesId = parseInt(favShows.id);
-
-  const favExist = favoriteSeries.find(
-    (idFavorite) => idFavorite.id === seriesId
-  );
-  if (favExist === undefined) {
-    const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
-    favoriteSeries.push(foundSerie);
-  } else {
-    favoriteSeries = favoriteSeries.filter(
-      (idFavorite) => idFavorite.id !== seriesId
-    );
-  }
-
-  paintFav();
-  setLocalStorage();
-}
-
 // Paint HTML Favorites
 
 function paintFav() {
