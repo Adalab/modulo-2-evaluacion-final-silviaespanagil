@@ -12,25 +12,38 @@
       href="https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Rye&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/a22a8f4330.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
-  <body>
-    <header></header>
-
-    <main class="main">
-      <h2 class="searchTittle">Buscador de series</h2>
-      <form class="searchForm">
-        <input type="text" class="searchForm__input js-searchBox" />
+  <body class="body">
+    <main">
+      <h2 class="searchTittle">Busca tu serie favorita</h2>
+      <form class="searchForm js-form">
+        <input
+          type="text"
+          class="searchForm__input js-searchBox"
+          placeholder="Ej: The leftovers"
+          value="game"
+        />
         <input
           type="button"
           value="Buscar"
           class="searchForm__button js-buttonSearch"
         />
       </form>
-      <section class="resultArea">
-        <h3 class="resultArea__subtitle js-resultArea"></h3>
-        <ul class="js-searchResult"></ul>
-      </section>
+      <div class="userArea">
+        <section class="resultArea">
+          <h3 class="resultArea__subtitle js-resultArea"></h3>
+          <ul class="js-searchResult"></ul>
+        </section>
+        <section class="favoriteArea js-favArea js-hidden">
+          <h3 class="favoriteArea__subtitle js-favTitle"></h3>
+          <ul class="js-searchFavs"></ul>
+        </section>
+      </div>
 
     </main>
     <script src="./assets/js/main.js"></script>
