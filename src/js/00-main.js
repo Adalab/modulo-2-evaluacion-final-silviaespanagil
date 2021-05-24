@@ -19,8 +19,3 @@ function deleteIcon() {
     favCard.addEventListener("click", deleteFav);
   }
 }
-
-//handler de searchButtons
-searchButton.addEventListener("click", search);
-form.addEventListener("submit", preventSubmit);
-getLocal();
