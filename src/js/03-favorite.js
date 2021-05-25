@@ -7,6 +7,15 @@ function makeLiClickable() {
   }
 }
 
+//Make delete clickable for favs
+
+function deleteIcon() {
+  const deleteIcons = document.querySelectorAll("small");
+  for (const deleteIcon of deleteIcons) {
+    deleteIcon.addEventListener("click", favoriteShow);
+  }
+}
+
 // Identify Favorite Shows
 
 function favoriteShow(ev) {
@@ -30,6 +39,5 @@ function favoriteShow(ev) {
   }
   paintFav();
   search();
-  //createList();
   setLocalStorage();
 }
