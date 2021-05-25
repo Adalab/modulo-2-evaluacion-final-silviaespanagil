@@ -16,10 +16,10 @@ function resetFav() {
 
 //delete favs
 
-function deleteIcon(i) {
+function deleteIcon() {
   const deleteIcons = document.querySelectorAll("small");
   for (const deleteIcon of deleteIcons) {
-    favCard.addEventListener("click", deleteFav);
+    deleteIcon.addEventListener("click", favoriteShow);
   }
 }
 

@@ -16,12 +16,12 @@ function favoriteShow(ev) {
   const seriesId = parseInt(favShows.id);
 
   //Compare id with favoriteArray
+  const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
 
   const favExist = favoriteSeries.find(
     (idFavorite) => idFavorite.id === seriesId
   );
   if (favExist === undefined) {
-    const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
     favoriteSeries.push(foundSerie);
   } else {
     favoriteSeries = favoriteSeries.filter(
@@ -29,5 +29,6 @@ function favoriteShow(ev) {
     );
   }
   paintFav();
+  //createList();
   setLocalStorage();
 }
