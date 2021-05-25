@@ -13,6 +13,8 @@ function paintFav() {
     const favImg = document.createElement("img");
     const favDiv = document.createElement("div");
     const favSeriesName = document.createElement("h3");
+
+    small.setAttribute("id", favoriteSeries[i].id);
     const smallContent = document.createTextNode("[x]");
     const favSeriesNameContent = document.createTextNode(
       `${favoriteSeries[i].name}`
@@ -33,4 +35,5 @@ function paintFav() {
     favSection.classList.remove("js-hidden");
     favUl.classList.add("js-favoriteArea");
   }
+  deleteIcon();
 }

@@ -12,5 +12,3 @@ const defaultImage =
   "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
 let allSeries = [];
 let favoriteSeries = [];
-
-console.log(favoriteSeries);

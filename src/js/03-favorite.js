@@ -12,10 +12,20 @@ function makeLiClickable() {
 function deleteIcon() {
   const deleteIcons = document.querySelectorAll("small");
   for (const deleteIcon of deleteIcons) {
-    deleteIcon.addEventListener("click", favoriteShow);
+    deleteIcon.addEventListener("click", deleteFav);
   }
 }
 
+//Delete fav
+function deleteFav(event) {
+  console.log("hice clic");
+  const xFav = parseInt(event.currentTarget.id);
+
+  console.log(xFav);
+  favoriteSeries = favoriteSeries.filter((favorite) => favorite.id !== xFav);
+  paintFav();
+  setLocalStorage();
+}
 // Identify Favorite Shows
 
 function favoriteShow(ev) {
