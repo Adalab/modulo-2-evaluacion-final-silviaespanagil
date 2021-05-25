@@ -29,6 +29,7 @@ function favoriteShow(ev) {
     );
   }
   paintFav();
+  search();
   //createList();
   setLocalStorage();
 }
