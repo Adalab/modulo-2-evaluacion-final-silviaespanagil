@@ -6,8 +6,7 @@
 
 After some Javascript code digging here comes the chance to put it on on practice. This is a series searcher, the applications allows to search a TV serie by its name and to add it to a personal favorite list.✨ Here's a glimpse✨
 
-<img src="https://user-images.githubusercontent.com/81619759/119475543-88c9f380-bd4d-11eb-9c80-5773ec929ee3.png" width="500"/> 
-
+<img src="https://user-images.githubusercontent.com/81619759/119475543-88c9f380-bd4d-11eb-9c80-5773ec929ee3.png" width="500"/>
 
 ## Requirements 📋
 
@@ -22,6 +21,7 @@ I was asked to develop a web application that:
 ## Extra features 🔥
 
 - As a bonus: add a reset button to the favorite area that resets the shown list and the local storage.
+- As another bonus: allow the user to eliminate a serie from his favorite area by clicking on the "x"
 
 ## Tech 💻
 
@@ -50,11 +50,15 @@ With the favorite series packed up in a variable I wrote down the localStorage s
 ## Want to clone my repository? 🐑🐑
 
 Go for it! Rembember that you will need to:
-  1) Install dependencies.  You will only have to do this once.
+
+1. Install dependencies. You will only have to do this once.
+
 ```sh
 npm install
 ```
-2) Start the proyect. This must be done everytime you code and will open a local host that will  update in real time
+
+2. Start the proyect. This must be done everytime you code and will open a local host that will update in real time
+
 ```sh
 npm start
 ```
