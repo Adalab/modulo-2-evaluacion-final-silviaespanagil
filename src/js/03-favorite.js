@@ -33,13 +33,11 @@ function favoriteShow(ev) {
 
   //Take the ID
   const seriesId = parseInt(favShows.id);
-
+  console.log(seriesId);
   //Compare id with favoriteArray
   const foundSerie = allSeries.find((favorite) => favorite.id === seriesId);
 
-  const favExist = favoriteSeries.find(
-    (idFavorite) => idFavorite.id === seriesId
-  );
+  const favExist = favoriteSeries.find((favorite) => favorite.id === seriesId);
   if (favExist === undefined) {
     favoriteSeries.push(foundSerie);
   } else {
