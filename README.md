@@ -1,10 +1,10 @@
-# Javascript evaluation: Series searcher
+# Series finder: Full Javascript
 
 ## _Search and save your favorite series_
 
-¡Hola!
+¡Hola mundo!
 
-After some Javascript code digging here comes the chance to put it on on practice. This is a series searcher, the applications allows to search a TV serie by its name and to add it to a personal favorite list.✨ Here's a glimpse✨
+After some Javascript code digging here comes the chance to put it on on practice. This is a series searcher/finder, the applications allows to search a TV serie by its name and to add it to a personal favorite list.✨ Here's a glimpse✨
 
 <img src="https://user-images.githubusercontent.com/81619759/119475543-88c9f380-bd4d-11eb-9c80-5773ec929ee3.png" width="500"/>
 
