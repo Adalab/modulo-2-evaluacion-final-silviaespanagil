@@ -17,9 +17,9 @@ function createList() {
     const seriesTimeContent = document.createTextNode(
       `${allSeries[i].schedule.time}`
     );
-    const seriesNameContent = document.createTextNode(`${allSeries[i].name}`);
+    const seriesNameContent = document.createTextNode(allSeries[i].name);
     imgEl.src = seriesImg;
-    imgEl.alt = "`${allSeries[i].name}`";
+    imgEl.alt = "(allSeries[i].name)";
 
     seriesTime.appendChild(seriesTimeContent);
     seriesNameEl.appendChild(seriesNameContent);

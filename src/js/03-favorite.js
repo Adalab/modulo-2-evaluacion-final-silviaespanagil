@@ -46,6 +46,5 @@ function favoriteShow(ev) {
     );
   }
   paintFav();
-  search();
   setLocalStorage();
 }
