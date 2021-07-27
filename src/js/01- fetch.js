@@ -1,7 +1,7 @@
 //API fetch
 
 function search() {
-  const apiBase = "http://api.tvmaze.com/search/shows?q=";
+  const apiBase = "https://api.tvmaze.com/search/shows?q=";
   const searchInput = document.querySelector(".js-searchBox");
   const userSearch = searchInput.value;
   const apiVariable = apiBase + userSearch;
